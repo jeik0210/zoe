@@ -1,0 +1,12 @@
+<%= form_tag(article_create_path , method: 'post') do %>
+	<%= label_tag :name, 'Nombre del Articulo'%>
+	<%= text_field :article, :name, class: 'form-control'%>
+	<br>
+	<%= label_tag :description, 'Descripcion  del Articulo'%>
+	<%= text_area :article, :description, size: '4x3',class: 'form-control'%>
+	<br>
+	<%= label_tag :autor, 'Nombre del Autor'%>
+	<%= text_field :article, :autor , class: 'form-control' %>
+	<br>
+<center><%= submit_tag 'enviar', class: 'btn btn-default' %></center>
+<% end %>

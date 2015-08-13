@@ -1,0 +1,40 @@
+<h1>Mis Articulos</h1>
+<table class="table table-bordered">
+	<tr>
+		<td><center><b>Nombre</b></center></td>
+		<td><center><b>Descripcion</b></center></td>
+		<td><center><b>Autor</b></center></td>
+		<td><center><b>Fecha y hora de la creacion</b></center></td>
+		<td colspan="2">
+		<center><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal_create_patient">Nuevo Articulo <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+		</center>
+		</button>
+		</td>
+</tr>
+
+<% @articles.each do |a| %>
+<tr>
+	<td><%= a.name %></td>
+	<td><%= a.description %></td>
+	<td><%= a.autor %></td>
+	<td><%= a.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+	<td><center><%= link_to 'editar' %></center></td>
+	<td><center><%= link_to 'borrar' %></center></td>
+</tr>
+<% end %>
+</table>
+<div class="col-md-8">
+	<div class="modal fade" id="modal_create_patient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><center><b>Nuevo Articulo</b></center></h4>
+				</div>
+				<div class="modal-body">
+					<%= render 'form_create' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
